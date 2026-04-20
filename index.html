@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AED - Guía de Estudio Interactiva</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="app-container">
+        <!-- Sidebar Navigation -->
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <h1>📚 AED Estudio</h1>
+                <p>Preparación Parcial</p>
+            </div>
+            
+            <div class="progress-container">
+                <div class="progress-header">
+                    <span>Progreso Total</span>
+                    <span id="progress-percentage">0%</span>
+                </div>
+                <div class="progress-bar-bg">
+                    <div class="progress-bar-fill" id="progress-bar"></div>
+                </div>
+            </div>
+
+            <nav class="sidebar-nav" id="sidebar-nav">
+                <!-- Links will be generated dynamically -->
+            </nav>
+        </aside>
+
+        <!-- Main Content Area -->
+        <main class="main-content">
+            <header class="topbar">
+                <div class="topic-title" id="current-topic-title">Bienvenido</div>
+                <div class="actions">
+                    <label class="checkbox-container">
+                        <span class="checkbox-label">Marcar como completado</span>
+                        <input type="checkbox" id="topic-checkbox" disabled>
+                        <span class="checkmark"></span>
+                    </label>
+                </div>
+            </header>
+
+            <div class="content-wrapper" id="content-wrapper">
+                <div class="markdown-body" id="markdown-content">
+                    <h1>Cargando contenido...</h1>
+                    <p>Por favor asegúrate de estar ejecutando esto a través de un servidor local (ej. Live Server) para que la carga de archivos funcione correctamente.</p>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Cargar Marked.js para renderizar Markdown -->
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <!-- App Logic -->
+    <script src="app.js"></script>
+</body>
+</html>
