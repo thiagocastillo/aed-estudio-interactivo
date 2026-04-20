@@ -58,11 +58,14 @@ const topics = [
 // Flatten items for easier lookup
 const allItems = topics.flatMap(cat => cat.items);
 
+let currentCategory = 'General';
 let currentTopicId = null;
 const progress = JSON.parse(localStorage.getItem('aed-progress')) || {};
 
 // DOM Elements
 const sidebarNav = document.getElementById('sidebar-nav');
+const sidebarTabs = document.getElementById('sidebar-tabs');
+const searchInput = document.getElementById('search-input');
 const markdownContent = document.getElementById('markdown-content');
 const currentTopicTitle = document.getElementById('current-topic-title');
 const topicCheckbox = document.getElementById('topic-checkbox');
@@ -70,13 +73,18 @@ const progressPercentage = document.getElementById('progress-percentage');
 const progressBar = document.getElementById('progress-bar');
 const contentWrapper = document.getElementById('content-wrapper');
 
+let searchQuery = '';
+
 function init() {
+    setupTabs();
+    setupSearch();
     renderSidebar();
     updateProgressUI();
     
-    // Load first topic by default
-    if (allItems.length > 0) {
-        loadTopic(allItems[0].id);
+    // Load first topic of initial category
+    const initialItems = topics.find(c => c.category === currentCategory).items;
+    if (initialItems.length > 0) {
+        loadTopic(initialItems[0].id);
     }
 
     // Checkbox event
@@ -89,30 +97,84 @@ function init() {
     });
 }
 
+function setupSearch() {
+    searchInput.oninput = (e) => {
+        searchQuery = e.target.value.toLowerCase().trim();
+        if (searchQuery) {
+            sidebarTabs.style.display = 'none';
+        } else {
+            sidebarTabs.style.display = 'grid';
+        }
+        renderSidebar();
+    };
+}
+
+function setupTabs() {
+    const btns = sidebarTabs.querySelectorAll('.tab-btn');
+    btns.forEach(btn => {
+        btn.onclick = () => {
+            btns.forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+            currentCategory = btn.dataset.category;
+            renderSidebar();
+            
+            // Auto-load first item of new category if not already in it
+            const items = topics.find(c => c.category === currentCategory).items;
+            if (items.length > 0 && !items.find(i => i.id === currentTopicId)) {
+                loadTopic(items[0].id);
+            }
+        };
+    });
+}
+
 function renderSidebar() {
     sidebarNav.innerHTML = '';
     
-    topics.forEach(category => {
-        // Render category header
-        const header = document.createElement('div');
-        header.className = 'nav-category';
-        header.textContent = category.category;
-        sidebarNav.appendChild(header);
+    let itemsToRender = [];
+    let headerText = '';
 
-        // Render items
-        category.items.forEach(topic => {
-            const isCompleted = progress[topic.id];
-            const isActive = topic.id === currentTopicId;
-            
-            const el = document.createElement('div');
-            el.className = `nav-item ${isActive ? 'active' : ''} ${isCompleted ? 'completed' : ''}`;
-            el.innerHTML = `
-                <span>${topic.title}</span>
-                ${isCompleted ? '<span class="status-icon">✓</span>' : ''}
-            `;
-            el.onclick = () => loadTopic(topic.id);
-            sidebarNav.appendChild(el);
-        });
+    if (searchQuery) {
+        itemsToRender = allItems.filter(i => 
+            i.title.toLowerCase().includes(searchQuery) || 
+            i.id.toLowerCase().includes(searchQuery)
+        );
+        headerText = `Resultados para: "${searchQuery}"`;
+    } else {
+        const category = topics.find(c => c.category === currentCategory);
+        if (!category) return;
+        itemsToRender = category.items;
+        headerText = category.category;
+    }
+
+    // Render header
+    const header = document.createElement('div');
+    header.className = 'nav-category';
+    header.textContent = headerText;
+    sidebarNav.appendChild(header);
+
+    if (itemsToRender.length === 0) {
+        const empty = document.createElement('div');
+        empty.style.padding = '1rem';
+        empty.style.color = 'var(--text-muted)';
+        empty.style.fontSize = '0.875rem';
+        empty.textContent = 'No se encontraron temas.';
+        sidebarNav.appendChild(empty);
+        return;
+    }
+
+    // Render items
+    itemsToRender.forEach(topic => {
+        const isCompleted = progress[topic.id];
+        const isActive = topic.id === currentTopicId;
+        
+        const el = document.createElement('div');
+        el.className = `nav-item ${isActive ? 'active' : ''} ${isCompleted ? 'completed' : ''}`;
+        el.innerHTML = `
+            <span>${topic.title}</span>
+            ${isCompleted ? '<span class="status-icon">✓</span>' : ''}
+        `;
+        el.onclick = () => loadTopic(topic.id);
+        sidebarNav.appendChild(el);
     });
 }
 
@@ -138,6 +200,16 @@ async function loadTopic(id) {
     topicCheckbox.disabled = false;
     topicCheckbox.checked = !!progress[id];
     
+    // If the topic belongs to a different category, update the tabs
+    const parentCategory = topics.find(c => c.items.some(i => i.id === id));
+    if (parentCategory && parentCategory.category !== currentCategory) {
+        currentCategory = parentCategory.category;
+        const btns = sidebarTabs.querySelectorAll('.tab-btn');
+        btns.forEach(b => {
+            b.classList.toggle('active', b.dataset.category === currentCategory);
+        });
+    }
+
     renderSidebar(); 
 
     markdownContent.innerHTML = '<div class="loader-container"><div class="loader"></div><h2>Cargando contenido...</h2></div>';
@@ -151,7 +223,7 @@ async function loadTopic(id) {
         // Parse markdown
         markdownContent.innerHTML = marked.parse(text);
         
-        // Highlight code blocks if needed (simple highlight)
+        // Highlight code blocks
         markdownContent.querySelectorAll('pre code').forEach((block) => {
             block.classList.add('hljs');
         });
@@ -161,7 +233,7 @@ async function loadTopic(id) {
             <div class="error-box">
                 <h3>Error cargando el contenido</h3>
                 <p>Archivo: <code>${topic.file}</code></p>
-                <p>Si estás viendo esto en local, recuerda usar un servidor (como Live Server). En GitHub Pages debería funcionar correctamente.</p>
+                <p>Verifica que el archivo exista en el repositorio.</p>
             </div>
         `;
     }

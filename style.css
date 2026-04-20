@@ -59,6 +59,27 @@ body {
     margin-top: 0.25rem;
 }
 
+.search-container {
+    margin-top: 1rem;
+}
+
+#search-input {
+    width: 100%;
+    background: var(--bg-dark);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 0.6rem 1rem;
+    color: var(--text-main);
+    font-size: 0.875rem;
+    outline: none;
+    transition: all 0.2s;
+}
+
+#search-input:focus {
+    border-color: var(--primary);
+    box-shadow: 0 0 0 2px var(--primary-glow);
+}
+
 /* Progress Bar */
 .progress-container {
     background: rgba(0,0,0,0.2);
@@ -95,13 +116,47 @@ body {
     box-shadow: 0 0 10px var(--primary-glow);
 }
 
+/* Sidebar Tabs */
+.sidebar-tabs {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.5rem;
+    padding: 0.25rem;
+    background: rgba(0,0,0,0.2);
+    border-radius: var(--radius);
+    border: 1px solid var(--border);
+}
+
+.tab-btn {
+    background: transparent;
+    border: none;
+    color: var(--text-muted);
+    padding: 0.5rem;
+    font-size: 0.75rem;
+    font-weight: 600;
+    cursor: pointer;
+    border-radius: 8px;
+    transition: all 0.2s;
+}
+
+.tab-btn:hover {
+    color: var(--text-main);
+}
+
+.tab-btn.active {
+    background: var(--bg-hover);
+    color: var(--primary);
+    box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+}
+
 /* Navigation */
 .sidebar-nav {
     display: flex;
     flex-direction: column;
-    gap: 0.5rem;
+    gap: 0.25rem;
     overflow-y: auto;
     padding-right: 0.5rem;
+    flex: 1;
 }
 
 .sidebar-nav::-webkit-scrollbar {

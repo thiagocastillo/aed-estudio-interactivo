@@ -14,6 +14,9 @@
             <div class="sidebar-header">
                 <h1>📚 AED Estudio</h1>
                 <p>Preparación Parcial</p>
+                <div class="search-container">
+                    <input type="text" id="search-input" placeholder="Buscar tema (ej. AVL)...">
+                </div>
             </div>
             
             <div class="progress-container">
@@ -24,6 +27,13 @@
                 <div class="progress-bar-bg">
                     <div class="progress-bar-fill" id="progress-bar"></div>
                 </div>
+            </div>
+
+            <div class="sidebar-tabs" id="sidebar-tabs">
+                <button class="tab-btn active" data-category="General">Teoría</button>
+                <button class="tab-btn" data-category="Pseudocódigos">Pseudos</button>
+                <button class="tab-btn" data-category="Exámenes (Letras)">Exámenes</button>
+                <button class="tab-btn" data-category="Soluciones">Soluciones</button>
             </div>
 
             <nav class="sidebar-nav" id="sidebar-nav">
