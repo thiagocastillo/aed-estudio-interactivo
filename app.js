@@ -1,3 +1,131 @@
+const tabsConfig = {
+    'General': { icon: 'fa-book', label: 'Teoria' },
+    'Pseudocódigos': { icon: 'fa-file-code', label: 'Pseudos' },
+    'Exámenes (Letras)': { icon: 'fa-file-lines', label: 'Letras' },
+    'Soluciones': { icon: 'fa-check-double', label: 'Soluciones' },
+    'Codigo Base': { icon: 'fa-laptop-code', label: 'Labs' },
+    'Fuentes Java': { icon: 'fa-code', label: 'Java TDAs' },
+    'Guias Practicas': { icon: 'fa-route', label: 'Guias' }
+};
+
+const virtualDocuments = {
+    'guia-interactiva-general': {
+        title: 'Ruta Interactiva de Estudio AED',
+        category: 'Guias Practicas',
+        markdown: `
+# Ruta Interactiva de Estudio AED
+
+Esta guia transforma todo el material en un flujo practico para estudiar con foco de parcial.
+
+## 1) Calentamiento teorico (30-40 min)
+
+- Leer [Guia de Estudio](guia-de-estudio.md) para entender patrones de parciales.
+- Repasar [Cuadernola](cuadernola.md) para tener plantillas listas.
+
+## 2) Base de estructuras (50-70 min)
+
+- Navegar por la seccion Pseudocodigos en este orden:
+    1. Lista enlazada
+    2. Pila y Cola
+    3. Conjunto
+    4. ABB
+    5. AVL
+- Objetivo: poder escribir cada TDA sin mirar.
+
+## 3) Entrenamiento tipo parcial parte pseudocodigo
+
+Resolver en tiempo:
+
+1. LTIM
+2. Separar hojas/internos
+3. Parentesco
+4. Combo viable
+5. BST peliculas
+
+## 4) Entrenamiento tipo parcial parte Java
+
+- Ir a la seccion Labs y abrir cada carpeta del parcial.
+- Identificar rapidamente:
+    - Interfaz
+    - Clase nodo/elemento
+    - Arbol o TDA principal
+    - Clase de dominio (Producto/Persona/etc.)
+    - Tests
+
+## 5) Simulacro final
+
+1. Elegir una letra de examen de la seccion Letras.
+2. Hacer primero pseudocodigo (max 60 min).
+3. Hacer luego Java + JUnit (max 60 min).
+4. Comparar contra Soluciones y anotar errores recurrentes.
+
+## Checklist de cierre
+
+- [ ] Inserto y roto AVL sin dudas.
+- [ ] Resuelvo ABB con recursion sin perder casos borde.
+- [ ] Paso de lenguaje natural a pseudocodigo en menos de 10 min.
+- [ ] Implemento en Java sin romper contratos de interfaces.
+- [ ] Escribo al menos 3 tests JUnit por ejercicio.
+`
+    },
+    'codigo-base-mapa': {
+        title: 'Mapa Visual del Codigo Base',
+        category: 'Guias Practicas',
+        markdown: `
+# Mapa Visual del Codigo Base
+
+Esta seccion te ayuda a orientarte rapido en cada base de catedra.
+
+## 2024-S1 (Parcial de Productos)
+
+- **Nucleo arbol**: \`IArbolBB\`, \`IElementoAB\`, \`TArbolBB\`, \`TElementoAB\`
+- **Dominio**: \`Producto\`, \`TArbolDeProductos\`
+- **Soporte**: \`ManejadorArchivosGenerico\`, \`Main\`
+- **Pruebas**: \`Parcial1Test_Junit4\`, \`Parcial1Test_Junit5\`
+
+## farmachop (Practico 10)
+
+- **Estructura principal**: \`ILista\` / \`Lista\`, \`INodo\` / \`Nodo\`
+- **IO de datos**: \`ManejadorArchivosGenerico\`, archivos txt de farmacos y sueros
+- **Entrada**: \`Programa\`
+
+## festival-otaku (Recuperatorio 2025)
+
+- **TDAs**: \`TDALista\`, \`TDACola\`, \`TDAPila\`, \`TDAConjunto\`
+- **Entrada**: \`App\`
+
+## parentesco (Parcial 2024 S2)
+
+- **Arbol genealogico**: \`IArbolBB\`, \`IElementoAB\`, \`TArbolBB\`, \`TElementoAB\`
+- **Dominio**: \`Persona\`, \`ResultadoParentesco\`, \`Genealogia\`
+- **Pruebas**: \`GenealogiaTests_JUnit5\`
+`
+    },
+    'practica-60-min': {
+        title: 'Practica Guiada 60 Minutos',
+        category: 'Guias Practicas',
+        markdown: `
+# Practica Guiada de 60 Minutos
+
+## Bloque A (15 min): AVL
+- Inserta una secuencia y justifica cada rotacion.
+- Objetivo: no equivocarte en LL, RR, LR, RL.
+
+## Bloque B (15 min): ABB recursivo
+- Resolver un metodo tipo hojas/internos o promedio de nivel.
+- Marcar claramente: caso base, llamada recursiva, combinacion.
+
+## Bloque C (15 min): Java de parcial
+- Elegir una base (parentesco o 2024-S1).
+- Completar un metodo central sin mirar solucion.
+
+## Bloque D (15 min): retroalimentacion
+- Comparar con Soluciones.
+- Anotar 3 errores y su correccion concreta.
+`
+    }
+};
+
 const topics = [
     { 
         category: 'General',
@@ -52,22 +180,63 @@ const topics = [
             { id: 'sol-ltim', title: 'LTI Media', file: 'soluciones/lti-media.md' },
             { id: 'sol-hojas', title: 'Separar Hojas/Internos', file: 'soluciones/separar-hojas-internos.md' },
         ]
+    },
+    {
+        category: 'Codigo Base',
+        items: [
+            { id: 'cb-2024s1-summary', title: '📌 Lab 2024-S1 (Info)', file: 'codigo-base/2024-S1/README.md', virtual: true, virtualSource: 'cb-2024s1' },
+            { id: 'cb-2024s1-tarbol', title: '   TArbolBB.java', file: 'codigo-base/2024-S1/TArbolBB.java' },
+            { id: 'cb-2024s1-telem', title: '   TElementoAB.java', file: 'codigo-base/2024-S1/TElementoAB.java' },
+            { id: 'cb-2024s1-test', title: '   Parcial1Test.java', file: 'codigo-base/2024-S1/Parcial1Test_Junit5.java' },
+            
+            { id: 'cb-farmachop-summary', title: '📌 Lab Farmachop (Info)', file: 'codigo-base/farmachop/README.md', virtual: true, virtualSource: 'cb-farmachop' },
+            { id: 'cb-farmachop-lista', title: '   Lista.java', file: 'codigo-base/farmachop/Lista.java' },
+            { id: 'cb-farmachop-prog', title: '   Programa.java', file: 'codigo-base/farmachop/Programa.java' },
+            
+            { id: 'cb-festival-summary', title: '📌 Lab Festival Otaku (Info)', file: 'codigo-base/festival-otaku/README.md', virtual: true, virtualSource: 'cb-festival' },
+            { id: 'cb-festival-lista', title: '   ListaEnlazada.java', file: 'codigo-base/festival-otaku/ListaEnlazada.java' },
+            { id: 'cb-festival-cola', title: '   Cola.java', file: 'codigo-base/festival-otaku/Cola.java' },
+            { id: 'cb-festival-conjunto', title: '   Conjunto.java', file: 'codigo-base/festival-otaku/Conjunto.java' },
+            
+            { id: 'cb-parentesco-summary', title: '📌 Lab Parentesco (Info)', file: 'codigo-base/parentesco/README.md', virtual: true, virtualSource: 'cb-parentesco' },
+            { id: 'cb-parentesco-tarbol', title: '   TArbolBB.java', file: 'codigo-base/parentesco/TArbolBB.java' },
+            { id: 'cb-parentesco-genea', title: '   Genealogia.java', file: 'codigo-base/parentesco/Genealogia.java' },
+        ]
+    },
+    {
+        category: 'Fuentes Java',
+        items: [
+            { id: 'java-tarbol', title: 'TArbolBB (Genérico)', file: 'codigo-base/2024-S1/TArbolBB.java' },
+            { id: 'java-telem', title: 'TElementoAB (Genérico)', file: 'codigo-base/2024-S1/TElementoAB.java' },
+            { id: 'java-lista', title: 'Lista Enlazada', file: 'codigo-base/farmachop/Lista.java' },
+            { id: 'java-nodo', title: 'Nodo Lista', file: 'codigo-base/farmachop/Nodo.java' },
+            { id: 'java-cola', title: 'Cola TDA', file: 'codigo-base/festival-otaku/Cola.java' },
+            { id: 'java-pila', title: 'Pila TDA', file: 'codigo-base/festival-otaku/Pila.java' },
+            { id: 'java-conjunto', title: 'Conjunto TDA', file: 'codigo-base/festival-otaku/Conjunto.java' },
+        ]
+    },
+    {
+        category: 'Guias Practicas',
+        items: [
+            { id: 'guia-interactiva-general', title: 'Ruta Interactiva de Estudio', file: 'virtual/guia-interactiva-general.md', virtual: true },
+            { id: 'codigo-base-mapa', title: 'Mapa Visual del Codigo Base', file: 'virtual/codigo-base-mapa.md', virtual: true },
+            { id: 'practica-60-min', title: 'Practica Guiada 60 Min', file: 'virtual/practica-60-min.md', virtual: true }
+        ]
     }
 ];
 
-// Flatten items for easier lookup
 const allItems = topics.flatMap(cat => cat.items);
 
 let currentCategory = 'General';
 let currentTopicId = null;
-const progress = JSON.parse(localStorage.getItem('aed-progress')) || {};
+const progress = JSON.parse(localStorage.getItem('aed-progress-premium')) || {}; 
 
-// DOM Elements
 const sidebarNav = document.getElementById('sidebar-nav');
 const sidebarTabs = document.getElementById('sidebar-tabs');
 const searchInput = document.getElementById('search-input');
 const markdownContent = document.getElementById('markdown-content');
 const currentTopicTitle = document.getElementById('current-topic-title');
+const currentCategoryBadge = document.getElementById('current-category-badge');
 const topicCheckbox = document.getElementById('topic-checkbox');
 const progressPercentage = document.getElementById('progress-percentage');
 const progressBar = document.getElementById('progress-bar');
@@ -76,18 +245,23 @@ const contentWrapper = document.getElementById('content-wrapper');
 let searchQuery = '';
 
 function init() {
+    renderTabs();
     setupTabs();
     setupSearch();
     renderSidebar();
     updateProgressUI();
     
-    // Load first topic of initial category
+    marked.setOptions({
+        gfm: true,
+        breaks: true,
+        headerIds: true
+    });
+    
     const initialItems = topics.find(c => c.category === currentCategory).items;
     if (initialItems.length > 0) {
         loadTopic(initialItems[0].id);
     }
 
-    // Checkbox event
     topicCheckbox.addEventListener('change', (e) => {
         if (!currentTopicId) return;
         progress[currentTopicId] = e.target.checked;
@@ -116,9 +290,13 @@ function setupTabs() {
             btns.forEach(b => b.classList.remove('active'));
             btn.classList.add('active');
             currentCategory = btn.dataset.category;
+            if (searchQuery) {
+                searchQuery = '';
+                searchInput.value = '';
+                sidebarTabs.style.display = 'grid';
+            }
             renderSidebar();
-            
-            // Auto-load first item of new category if not already in it
+
             const items = topics.find(c => c.category === currentCategory).items;
             if (items.length > 0 && !items.find(i => i.id === currentTopicId)) {
                 loadTopic(items[0].id);
@@ -127,9 +305,61 @@ function setupTabs() {
     });
 }
 
+function renderTabs() {
+    sidebarTabs.innerHTML = '';
+    topics.forEach((topicGroup, index) => {
+        const cfg = tabsConfig[topicGroup.category] || { icon: 'fa-folder-open', label: topicGroup.category };
+        const btn = document.createElement('button');
+        btn.className = `tab-btn ${index === 0 ? 'active' : ''}`;
+        btn.dataset.category = topicGroup.category;
+        btn.innerHTML = `<i class="fa-solid ${cfg.icon}"></i> ${cfg.label}`;
+        sidebarTabs.appendChild(btn);
+    });
+}
+
+function getVirtualCodeBaseMarkdown(key) {
+    const codeBaseGuides = {
+        'cb-2024s1': {
+            title: 'Lab 2024-S1 (Productos)',
+            objective: 'Resolver metodos de ABB/AVL y logica sobre productos.',
+            files: ['IArbolBB.java', 'IElementoAB.java', 'TArbolBB.java', 'TElementoAB.java', 'Producto.java', 'Parcial1Test.java']
+        },
+        'cb-farmachop': {
+            title: 'Lab Farmachop (Practico 10)',
+            objective: 'Resolver filtros por lista blanca/negra y validacion de preparado viable.',
+            files: ['ILista.java', 'INodo.java', 'Lista.java', 'Nodo.java', 'Programa.java']
+        },
+        'cb-festival': {
+            title: 'Lab Festival Otaku',
+            objective: 'Practicar implementacion de TDAs y composicion para ejercicios de combinatoria.',
+            files: ['TDALista.java', 'ListaEnlazada.java', 'TDACola.java', 'Cola.java', 'TDAPila.java', 'Pila.java', 'TDAConjunto.java', 'Conjunto.java']
+        },
+        'cb-parentesco': {
+            title: 'Lab Parentesco',
+            objective: 'Implementar calculo de parentesco en arbol genealogico invertido.',
+            files: ['IArbolBB.java', 'IElementoAB.java', 'TArbolBB.java', 'TElementoAB.java', 'Genealogia.java', 'Persona.java']
+        }
+    };
+
+    const guide = codeBaseGuides[key];
+    if (!guide) return '# Guia no disponible';
+
+    return `
+# ${guide.title}
+
+## Objetivo
+${guide.objective}
+
+## Archivos clave disponibles
+${guide.files.map(f => `- \`${f}\``).join('\n')}
+
+## Instrucciones
+Utiliza los archivos de este laboratorio para practicar la implementación de los métodos requeridos en los parciales.
+`;
+}
+
 function renderSidebar() {
     sidebarNav.innerHTML = '';
-    
     let itemsToRender = [];
     let headerText = '';
 
@@ -146,32 +376,28 @@ function renderSidebar() {
         headerText = category.category;
     }
 
-    // Render header
     const header = document.createElement('div');
     header.className = 'nav-category';
-    header.textContent = headerText;
+    header.innerHTML = `<span>${headerText}</span>`;
     sidebarNav.appendChild(header);
 
     if (itemsToRender.length === 0) {
         const empty = document.createElement('div');
         empty.style.padding = '1rem';
         empty.style.color = 'var(--text-muted)';
-        empty.style.fontSize = '0.875rem';
         empty.textContent = 'No se encontraron temas.';
         sidebarNav.appendChild(empty);
         return;
     }
 
-    // Render items
     itemsToRender.forEach(topic => {
         const isCompleted = progress[topic.id];
         const isActive = topic.id === currentTopicId;
-        
         const el = document.createElement('div');
-        el.className = `nav-item ${isActive ? 'active' : ''} ${isCompleted ? 'completed' : ''}`;
+        el.className = `nav-item ${isActive ? 'active' : ''}`;
         el.innerHTML = `
             <span>${topic.title}</span>
-            ${isCompleted ? '<span class="status-icon">✓</span>' : ''}
+            ${isCompleted ? '<div class="status-icon"><i class="fa-solid fa-check"></i></div>' : ''}
         `;
         el.onclick = () => loadTopic(topic.id);
         sidebarNav.appendChild(el);
@@ -182,60 +408,99 @@ function updateProgressUI() {
     const total = allItems.length;
     const completed = allItems.filter(t => progress[t.id]).length;
     const pct = total === 0 ? 0 : Math.round((completed / total) * 100);
-    
     progressPercentage.textContent = `${pct}%`;
     progressBar.style.width = `${pct}%`;
 }
 
 function saveProgress() {
-    localStorage.setItem('aed-progress', JSON.stringify(progress));
+    localStorage.setItem('aed-progress-premium', JSON.stringify(progress));
+}
+
+function enhanceCodeBlocks() {
+    const codeBlocks = markdownContent.querySelectorAll('pre code');
+    codeBlocks.forEach((block, index) => {
+        const classList = Array.from(block.classList);
+        const langClass = classList.find(c => c.startsWith('language-'));
+        const language = langClass ? langClass.replace('language-', '') : 'code';
+        hljs.highlightElement(block);
+        const pre = block.parentElement;
+        const wrapper = document.createElement('div');
+        wrapper.className = 'code-block-wrapper fade-in';
+        wrapper.style.animationDelay = `${index * 0.05}s`;
+        const header = document.createElement('div');
+        header.className = 'code-block-header';
+        const langLabel = document.createElement('div');
+        langLabel.className = 'code-language';
+        langLabel.textContent = language;
+        const copyBtn = document.createElement('button');
+        copyBtn.className = 'copy-btn';
+        copyBtn.innerHTML = '<i class="fa-regular fa-copy"></i> Copiar';
+        copyBtn.onclick = () => {
+            navigator.clipboard.writeText(block.innerText).then(() => {
+                copyBtn.innerHTML = '<i class="fa-solid fa-check"></i> Copiado';
+                copyBtn.classList.add('copied');
+                setTimeout(() => {
+                    copyBtn.innerHTML = '<i class="fa-regular fa-copy"></i> Copiar';
+                    copyBtn.classList.remove('copied');
+                }, 2000);
+            });
+        };
+        header.appendChild(langLabel);
+        header.appendChild(copyBtn);
+        pre.parentNode.insertBefore(wrapper, pre);
+        wrapper.appendChild(header);
+        wrapper.appendChild(pre);
+    });
 }
 
 async function loadTopic(id) {
     const topic = allItems.find(t => t.id === id);
     if (!topic) return;
-
     currentTopicId = id;
+    markdownContent.classList.remove('fade-in');
+    const parentCategory = topics.find(c => c.items.some(i => i.id === id));
+    currentCategoryBadge.textContent = parentCategory ? parentCategory.category : 'General';
     currentTopicTitle.textContent = topic.title;
     topicCheckbox.disabled = false;
     topicCheckbox.checked = !!progress[id];
     
-    // If the topic belongs to a different category, update the tabs
-    const parentCategory = topics.find(c => c.items.some(i => i.id === id));
     if (parentCategory && parentCategory.category !== currentCategory) {
         currentCategory = parentCategory.category;
         const btns = sidebarTabs.querySelectorAll('.tab-btn');
-        btns.forEach(b => {
-            b.classList.toggle('active', b.dataset.category === currentCategory);
-        });
+        btns.forEach(b => b.classList.toggle('active', b.dataset.category === currentCategory));
     }
 
     renderSidebar(); 
-
-    markdownContent.innerHTML = '<div class="loader-container"><div class="loader"></div><h2>Cargando contenido...</h2></div>';
+    markdownContent.innerHTML = `<div class="loader-container"><div class="loader"></div><h3>Cargando...</h3></div>`;
     contentWrapper.scrollTop = 0;
 
     try {
-        const response = await fetch(topic.file);
-        if (!response.ok) throw new Error('No se pudo cargar el archivo');
-        const text = await response.text();
-        
-        // Parse markdown
+        let text = '';
+        if (topic.virtual) {
+            if (virtualDocuments[id]) {
+                text = virtualDocuments[id].markdown;
+            } else if (topic.virtualSource) {
+                text = getVirtualCodeBaseMarkdown(topic.virtualSource);
+            } else {
+                text = '# Contenido no disponible';
+            }
+        } else {
+            const response = await fetch(topic.file);
+            if (!response.ok) throw new Error('No se pudo cargar');
+            text = await response.text();
+            
+            // Detect file type and wrap if necessary
+            if (topic.file.endsWith('.java')) {
+                text = `# Fuente: ${topic.title}\n\n\`\`\`java\n${text}\n\`\`\``;
+            } else if (topic.file.endsWith('.txt')) {
+                text = `# Datos: ${topic.title}\n\n\`\`\`text\n${text}\n\`\`\``;
+            }
+        }
         markdownContent.innerHTML = marked.parse(text);
-        
-        // Highlight code blocks
-        markdownContent.querySelectorAll('pre code').forEach((block) => {
-            block.classList.add('hljs');
-        });
-
+        markdownContent.classList.add('fade-in');
+        enhanceCodeBlocks();
     } catch (err) {
-        markdownContent.innerHTML = `
-            <div class="error-box">
-                <h3>Error cargando el contenido</h3>
-                <p>Archivo: <code>${topic.file}</code></p>
-                <p>Verifica que el archivo exista en el repositorio.</p>
-            </div>
-        `;
+        markdownContent.innerHTML = `<div class="error-box fade-in"><i class="fa-solid fa-triangle-exclamation"></i><h3>Error cargando contenido</h3><p>No se pudo cargar <code>${topic.file}</code>.</p></div>`;
     }
 }
 

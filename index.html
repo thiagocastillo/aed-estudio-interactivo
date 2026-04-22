@@ -4,17 +4,37 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>AED - Guía de Estudio Interactiva</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500&family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Highlight.js (Atom One Dark Theme) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/atom-one-dark.min.css">
+    
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <div class="app-background"></div>
     <div class="app-container">
+        
         <!-- Sidebar Navigation -->
         <aside class="sidebar">
             <div class="sidebar-header">
-                <h1>📚 AED Estudio</h1>
-                <p>Preparación Parcial</p>
+                <div class="logo-container">
+                    <i class="fa-solid fa-code logo-icon"></i>
+                    <div>
+                        <h1>AED Estudio</h1>
+                        <p>Preparación Parcial</p>
+                    </div>
+                </div>
+                
                 <div class="search-container">
+                    <i class="fa-solid fa-search search-icon"></i>
                     <input type="text" id="search-input" placeholder="Buscar tema (ej. AVL)...">
                 </div>
             </div>
@@ -29,12 +49,7 @@
                 </div>
             </div>
 
-            <div class="sidebar-tabs" id="sidebar-tabs">
-                <button class="tab-btn active" data-category="General">Teoría</button>
-                <button class="tab-btn" data-category="Pseudocódigos">Pseudos</button>
-                <button class="tab-btn" data-category="Exámenes (Letras)">Exámenes</button>
-                <button class="tab-btn" data-category="Soluciones">Soluciones</button>
-            </div>
+            <div class="sidebar-tabs" id="sidebar-tabs"></div>
 
             <nav class="sidebar-nav" id="sidebar-nav">
                 <!-- Links will be generated dynamically -->
@@ -44,28 +59,34 @@
         <!-- Main Content Area -->
         <main class="main-content">
             <header class="topbar">
-                <div class="topic-title" id="current-topic-title">Bienvenido</div>
+                <div class="topic-info">
+                    <div class="topic-category-badge" id="current-category-badge">General</div>
+                    <div class="topic-title" id="current-topic-title">Bienvenido</div>
+                </div>
                 <div class="actions">
                     <label class="checkbox-container">
-                        <span class="checkbox-label">Marcar como completado</span>
                         <input type="checkbox" id="topic-checkbox" disabled>
-                        <span class="checkmark"></span>
+                        <div class="checkmark"></div>
+                        <span class="checkbox-label">Marcar como completado</span>
                     </label>
                 </div>
             </header>
 
             <div class="content-wrapper" id="content-wrapper">
                 <div class="markdown-body" id="markdown-content">
-                    <h1>Cargando contenido...</h1>
-                    <p>Por favor asegúrate de estar ejecutando esto a través de un servidor local (ej. Live Server) para que la carga de archivos funcione correctamente.</p>
+                    <div class="loader-container">
+                        <div class="loader"></div>
+                        <h2>Cargando contenido...</h2>
+                        <p>Asegúrate de estar ejecutando esto a través de un servidor local (ej. Live Server).</p>
+                    </div>
                 </div>
             </div>
         </main>
     </div>
 
-    <!-- Cargar Marked.js para renderizar Markdown -->
+    <!-- Scripts -->
     <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
-    <!-- App Logic -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
     <script src="app.js"></script>
 </body>
 </html>
