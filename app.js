@@ -158,59 +158,59 @@ const topics = [
     { 
         category: 'General',
         items: [
-            { id: 'guia', title: 'Guía de Estudio', file: 'guia-de-estudio.md' },
-            { id: 'cuadernola', title: 'Cuadernola (Teoría)', file: 'cuadernola.md' },
-            { id: 'metodos-java-guia', title: 'Guía de Implementación Java', file: 'metodos_java.md' },
+            { id: 'guia', title: 'Guía de Estudio', file: './guia-de-estudio.md' },
+            { id: 'cuadernola', title: 'Cuadernola (Teoría)', file: './cuadernola.md' },
+            { id: 'metodos-java-guia', title: 'Guía de Implementación Java', file: './metodos_java.md' },
         ]
     },
     {
         category: 'Pseudocódigos',
         items: [
-            { id: 'pseudo-completo', title: '📘 Todos los Pseudos', file: 'pseudocodigos/pseudos-completo.md' },
-            { id: 'pseudo-arbol-avl', title: 'Árbol AVL', file: 'pseudocodigos/arbol-avl.md' },
-            { id: 'pseudo-arbol-binario', title: 'Árbol Binario', file: 'pseudocodigos/arbol-binario.md' },
-            { id: 'pseudo-arbol-bst', title: 'Árbol BST', file: 'pseudocodigos/arbol-bst.md' },
-            { id: 'pseudo-cola', title: 'Cola', file: 'pseudocodigos/cola.md' },
-            { id: 'pseudo-conjunto', title: 'Conjunto', file: 'pseudocodigos/conjunto.md' },
-            { id: 'pseudo-lista', title: 'Lista Enlazada', file: 'pseudocodigos/lista-enlazada.md' },
-            { id: 'pseudo-pila', title: 'Pila', file: 'pseudocodigos/pila.md' },
-            { id: 'pseudo-eliminacion', title: 'Eliminación ABB', file: 'pseudocodigos/eliminacion-abb.md' },
-            { id: 'pseudo-clave-compuesta', title: 'Clave Compuesta', file: 'pseudocodigos/clave-compuesta.md' },
-            { id: 'pseudo-ej-pelis', title: 'Ejercicio: Películas', file: 'pseudocodigos/ejercicio-bst-peliculas.md' },
-            { id: 'pseudo-ej-parentesco', title: 'Ejercicio: Parentesco', file: 'pseudocodigos/ejercicio-calcular-parentesco.md' },
-            { id: 'pseudo-ej-combo', title: 'Ejercicio: Combo Viable', file: 'pseudocodigos/ejercicio-combo-viable.md' },
-            { id: 'pseudo-ej-ltim', title: 'Ejercicio: LTIM', file: 'pseudocodigos/ejercicio-ltim.md' },
-            { id: 'pseudo-ej-hojas', title: 'Ejercicio: Hojas/Internos', file: 'pseudocodigos/ejercicio-separar-hojas-internos.md' },
-            { id: 'pseudo-ej-altura', title: 'Ejercicio: Calcular Altura', file: 'pseudocodigos/ejercicio-calcular-altura.md' },
-            { id: 'pseudo-ej-tamano', title: 'Ejercicio: Calcular Tamaño', file: 'pseudocodigos/ejercicio-calcular-tamano.md' },
+            { id: 'pseudo-completo', title: '📘 Todos los Pseudos', file: './pseudocodigos/pseudos-completo.md' },
+            { id: 'pseudo-arbol-avl', title: 'Árbol AVL', file: './pseudocodigos/arbol-avl.md' },
+            { id: 'pseudo-arbol-binario', title: 'Árbol Binario', file: './pseudocodigos/arbol-binario.md' },
+            { id: 'pseudo-arbol-bst', title: 'Árbol BST', file: './pseudocodigos/arbol-bst.md' },
+            { id: 'pseudo-cola', title: 'Cola', file: './pseudocodigos/cola.md' },
+            { id: 'pseudo-conjunto', title: 'Conjunto', file: './pseudocodigos/conjunto.md' },
+            { id: 'pseudo-lista', title: 'Lista Enlazada', file: './pseudocodigos/lista-enlazada.md' },
+            { id: 'pseudo-pila', title: 'Pila', file: './pseudocodigos/pila.md' },
+            { id: 'pseudo-eliminacion', title: 'Eliminación ABB', file: './pseudocodigos/eliminacion-abb.md' },
+            { id: 'pseudo-clave-compuesta', title: 'Clave Compuesta', file: './pseudocodigos/clave-compuesta.md' },
+            { id: 'pseudo-ej-pelis', title: 'Ejercicio: Películas', file: './pseudocodigos/ejercicio-bst-peliculas.md' },
+            { id: 'pseudo-ej-parentesco', title: 'Ejercicio: Parentesco', file: './pseudocodigos/ejercicio-calcular-parentesco.md' },
+            { id: 'pseudo-ej-combo', title: 'Ejercicio: Combo Viable', file: './pseudocodigos/ejercicio-combo-viable.md' },
+            { id: 'pseudo-ej-ltim', title: 'Ejercicio: LTIM', file: './pseudocodigos/ejercicio-ltim.md' },
+            { id: 'pseudo-ej-hojas', title: 'Ejercicio: Hojas/Internos', file: './pseudocodigos/ejercicio-separar-hojas-internos.md' },
+            { id: 'pseudo-ej-altura', title: 'Ejercicio: Calcular Altura', file: './pseudocodigos/ejercicio-calcular-altura.md' },
+            { id: 'pseudo-ej-tamano', title: 'Ejercicio: Calcular Tamaño', file: './pseudocodigos/ejercicio-calcular-tamano.md' },
         ]
     },
     {
         category: 'Exámenes (Letras)',
         items: [
-            { id: 'letra-2024-s1-p2-e1', title: '2024 S1 P2 Examen 1', file: 'letras/2024-S1-parte2-examen1.md' },
-            { id: 'letra-2024-s1-p2-e2', title: '2024 S1 P2 Examen 2', file: 'letras/2024-S1-parte2-examen2.md' },
-            { id: 'letra-2024-s1-p3-e1', title: '2024 S1 P3 Examen 1', file: 'letras/2024-S1-parte3-examen1.md' },
-            { id: 'letra-2024-s1-p3-e2', title: '2024 S1 P3 Examen 2', file: 'letras/2024-S1-parte3-examen2.md' },
-            { id: 'letra-2024-s2-p2', title: '2024 S2 Parte 2', file: 'letras/2024-S2-parte2.md' },
-            { id: 'letra-2025-s1-p2', title: '2025 S1 Parte 2', file: 'letras/2025-S1-parte2.md' },
-            { id: 'letra-2025-s1-p3', title: '2025 S1 Parte 3', file: 'letras/2025-S1-parte3.md' },
-            { id: 'letra-2025-s1-p3-rec', title: '2025 S1 P3 Recuperatorio', file: 'letras/2025-S1-parte3-recuperatorio.md' },
-            { id: 'letra-2025-s2-p2', title: '2025 S2 Parte 2', file: 'letras/2025-S2-parte2.md' },
-            { id: 'letra-parentesco-p3', title: 'Parentesco Parte 3', file: 'letras/parentesco-parte3.md' },
-            { id: 'letra-otaku', title: 'Festival Otaku (Completo)', file: 'letras/festivalOtaku-completo.md' },
-            { id: 'letra-farmachop', title: 'Práctico 10 - Farmachop', file: 'letras/practico10-farmachop.md' },
+            { id: 'letra-2024-s1-p2-e1', title: '2024 S1 P2 Examen 1', file: './letras/2024-S1-parte2-examen1.md' },
+            { id: 'letra-2024-s1-p2-e2', title: '2024 S1 P2 Examen 2', file: './letras/2024-S1-parte2-examen2.md' },
+            { id: 'letra-2024-s1-p3-e1', title: '2024 S1 P3 Examen 1', file: './letras/2024-S1-parte3-examen1.md' },
+            { id: 'letra-2024-s1-p3-e2', title: '2024 S1 P3 Examen 2', file: './letras/2024-S1-parte3-examen2.md' },
+            { id: 'letra-2024-s2-p2', title: '2024 S2 Parte 2', file: './letras/2024-S2-parte2.md' },
+            { id: 'letra-2025-s1-p2', title: '2025 S1 Parte 2', file: './letras/2025-S1-parte2.md' },
+            { id: 'letra-2025-s1-p3', title: '2025 S1 Parte 3', file: './letras/2025-S1-parte3.md' },
+            { id: 'letra-2025-s1-p3-rec', title: '2025 S1 P3 Recuperatorio', file: './letras/2025-S1-parte3-recuperatorio.md' },
+            { id: 'letra-2025-s2-p2', title: '2025 S2 Parte 2', file: './letras/2025-S2-parte2.md' },
+            { id: 'letra-parentesco-p3', title: 'Parentesco Parte 3', file: './letras/parentesco-parte3.md' },
+            { id: 'letra-otaku', title: 'Festival Otaku (Completo)', file: './letras/festivalOtaku-completo.md' },
+            { id: 'letra-farmachop', title: 'Práctico 10 - Farmachop', file: './letras/practico10-farmachop.md' },
         ]
     },
     {
         category: 'Soluciones',
         items: [
-            { id: 'sol-avl', title: 'Inserciones AVL', file: 'soluciones/avl-inserciones.md' },
-            { id: 'sol-bst-pelis', title: 'BST Películas', file: 'soluciones/bst-peliculas.md' },
-            { id: 'sol-parentesco', title: 'Calcular Parentesco', file: 'soluciones/calcular-parentesco.md' },
-            { id: 'sol-combo', title: 'Combo Viable', file: 'soluciones/combo-viable.md' },
-            { id: 'sol-ltim', title: 'LTI Media', file: 'soluciones/lti-media.md' },
-            { id: 'sol-hojas', title: 'Separar Hojas/Internos', file: 'soluciones/separar-hojas-internos.md' },
+            { id: 'sol-avl', title: 'Inserciones AVL', file: './soluciones/avl-inserciones.md' },
+            { id: 'sol-bst-pelis', title: 'BST Películas', file: './soluciones/bst-peliculas.md' },
+            { id: 'sol-parentesco', title: 'Calcular Parentesco', file: './soluciones/calcular-parentesco.md' },
+            { id: 'sol-combo', title: 'Combo Viable', file: './soluciones/combo-viable.md' },
+            { id: 'sol-ltim', title: 'LTI Media', file: './soluciones/lti-media.md' },
+            { id: 'sol-hojas', title: 'Separar Hojas/Internos', file: './soluciones/separar-hojas-internos.md' },
             { id: 'sol-2024s1-summary', title: '📌 Solución 2024-S1 (Info)', file: 'virtual/sol-2024s1-summary.md', virtual: true, virtualSource: 'sol-2024s1' },
             { id: 'sol-2024s1-tarbol', title: '   TArbolBB.java (Sol)', file: 'soluciones/Primer-parcial-Parte-3-2024-1er-Semestre/src/main/java/uy/edu/ucu/aed/TArbolBB.java' },
             { id: 'sol-2024s1-tprod', title: '   TArbolDeProductos.java', file: 'soluciones/Primer-parcial-Parte-3-2024-1er-Semestre/src/main/java/uy/edu/ucu/aed/TArbolDeProductos.java' },
@@ -263,13 +263,13 @@ const topics = [
     {
         category: 'Primer Parcial',
         items: [
-            { id: 'parcial1-plan', title: '📋 Plan de Resolución', file: 'virtual/parcial1-plan.md', virtual: true },
-            { id: 'parcial1-naves-completo', title: '🚀 Solución Completa', file: 'soluciones/primer-parcial-naves.md' },
-            { id: 'parcial1-naves-r1', title: 'R1: Recepción (Pseudo)', file: 'soluciones/parcial1-naves-r1.md' },
-            { id: 'parcial1-naves-r2', title: 'R2: Procesamiento (Pseudo)', file: 'soluciones/parcial1-naves-r2.md' },
-            { id: 'parcial1-naves-r3', title: 'R3: Historial AVL (Pseudo)', file: 'soluciones/parcial1-naves-r3.md' },
-            { id: 'parcial1-naves-r4', title: 'R4: Cancelación (Pseudo)', file: 'soluciones/parcial1-naves-r4.md' },
-            { id: 'parcial1-naves-modelado', title: 'Modelado y Entidades', file: 'soluciones/parcial1-naves-modelado.md' },
+            { id: 'parcial1-plan', title: '📋 Plan de Resolución', file: './virtual/parcial1-plan.md', virtual: true },
+            { id: 'parcial1-naves-completo', title: '🚀 Solución Completa', file: './soluciones/primer-parcial-naves.md' },
+            { id: 'parcial1-naves-r1', title: 'R1: Recepción (Pseudo)', file: './soluciones/parcial1-naves-r1.md' },
+            { id: 'parcial1-naves-r2', title: 'R2: Procesamiento (Pseudo)', file: './soluciones/parcial1-naves-r2.md' },
+            { id: 'parcial1-naves-r3', title: 'R3: Historial AVL (Pseudo)', file: './soluciones/parcial1-naves-r3.md' },
+            { id: 'parcial1-naves-r4', title: 'R4: Cancelación (Pseudo)', file: './soluciones/parcial1-naves-r4.md' },
+            { id: 'parcial1-naves-modelado', title: 'Modelado y Entidades', file: './soluciones/parcial1-naves-modelado.md' },
         ]
     }
 ];
@@ -539,8 +539,15 @@ async function loadTopic(id) {
                 text = '# Contenido no disponible';
             }
         } else {
-            const response = await fetch(topic.file);
-            if (!response.ok) throw new Error('No se pudo cargar');
+            // Add a cache buster to avoid getting stale 404s or old content
+            const fetchUrl = topic.file + '?v=' + Date.now();
+            console.log('Fetching:', fetchUrl);
+            
+            const response = await fetch(fetchUrl);
+            if (!response.ok) {
+                console.error(`Fetch failed for ${topic.file}:`, response.status, response.statusText);
+                throw new Error(`Error ${response.status}: ${response.statusText}`);
+            }
             text = await response.text();
             
             // Detect file type and wrap if necessary
@@ -554,7 +561,18 @@ async function loadTopic(id) {
         markdownContent.classList.add('fade-in');
         enhanceCodeBlocks();
     } catch (err) {
-        markdownContent.innerHTML = `<div class="error-box fade-in"><i class="fa-solid fa-triangle-exclamation"></i><h3>Error cargando contenido</h3><p>No se pudo cargar <code>${topic.file}</code>.</p></div>`;
+        console.error('loadTopic Error:', err);
+        markdownContent.innerHTML = `
+            <div class="error-box fade-in">
+                <i class="fa-solid fa-triangle-exclamation"></i>
+                <h3>Error cargando contenido</h3>
+                <p>No se pudo cargar: <code>${topic.file}</code></p>
+                <div style="font-size: 0.8rem; margin-top: 1rem; color: var(--text-muted); opacity: 0.7;">
+                    Detalle: ${err.message}<br>
+                    Intenta recargar la página (Ctrl + F5).
+                </div>
+            </div>
+        `;
     }
 }
 
