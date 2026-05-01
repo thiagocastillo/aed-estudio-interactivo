@@ -201,10 +201,10 @@ body {
 /* Sidebar Tabs */
 .sidebar-tabs {
     display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 0.5rem;
-    padding: 0.35rem;
-    background: rgba(0, 0, 0, 0.3);
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0.4rem;
+    padding: 0.4rem;
+    background: rgba(0, 0, 0, 0.4);
     border-radius: var(--radius-md);
     border: 1px solid var(--border-color);
 }
@@ -213,18 +213,19 @@ body {
     background: transparent;
     border: none;
     color: var(--text-secondary);
-    padding: 0.6rem 0.5rem;
-    font-size: 0.75rem;
+    padding: 0.5rem 0.25rem;
+    font-size: 0.7rem;
     font-weight: 600;
     font-family: var(--font-main);
     cursor: pointer;
     border-radius: var(--radius-sm);
     transition: all 0.2s ease;
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
-    gap: 0.35rem;
-    min-height: 38px;
+    gap: 0.25rem;
+    min-height: 50px;
 }
 
 .tab-btn i {

@@ -124,6 +124,33 @@ Esta seccion te ayuda a orientarte rapido en cada base de catedra.
 - Comparar con Soluciones.
 - Anotar 3 errores y su correccion concreta.
 `
+    },
+    'parcial1-plan': {
+        title: '📋 Plan de Resolución: Naves Autónomas',
+        category: 'Primer Parcial',
+        markdown: `
+# Plan de Resolución: Naves Autónomas
+
+Sigue estas etapas para dominar la implementación de este parcial.
+
+## Etapa 1: Análisis y Modelado (15 min)
+- Entender la entidad **Tarea** (id, descripcion, criticidad).
+- Definir los topes: 25 global, 10 críticas.
+- Identificar las 3 colas necesarias.
+
+## Etapa 2: Implementación de Recepción y Procesamiento (30 min)
+- Escribir el pseudocódigo de \`recibirTarea\` validando cupos.
+- Implementar \`procesarTarea\` respetando la prioridad 1 > 2 > (3,4).
+- **Clave**: No olvidar \`drenarColaEspera()\` al liberar espacio.
+
+## Etapa 3: Estructura de Datos AVL (20 min)
+- Entender por qué se usa un AVL (búsqueda logarítmica).
+- Implementar la migración del buffer al árbol en la tarea #75.
+
+## Etapa 4: Cancelación e Inmutabilidad (15 min)
+- Implementar \`cancelarTarea\` recorriendo las 3 colas.
+- Asegurar que el historial sea inmutable.
+`
     }
 };
 
@@ -236,12 +263,13 @@ const topics = [
     {
         category: 'Primer Parcial',
         items: [
-            { id: 'parcial1-naves-completo', title: '🚀 Solución Completa: Naves', file: 'soluciones/primer-parcial-naves.md' },
-            { id: 'parcial1-naves-r1', title: 'R1: Recepción de Tareas', file: 'soluciones/parcial1-naves-r1.md' },
-            { id: 'parcial1-naves-r2', title: 'R2: Procesamiento', file: 'soluciones/parcial1-naves-r2.md' },
-            { id: 'parcial1-naves-r3', title: 'R3: Historial AVL', file: 'soluciones/parcial1-naves-r3.md' },
-            { id: 'parcial1-naves-r4', title: 'R4: Cancelación', file: 'soluciones/parcial1-naves-r4.md' },
-            { id: 'parcial1-naves-modelado', title: 'Modelado de Entidades', file: 'soluciones/parcial1-naves-modelado.md' },
+            { id: 'parcial1-plan', title: '📋 Plan de Resolución', file: 'virtual/parcial1-plan.md', virtual: true },
+            { id: 'parcial1-naves-completo', title: '🚀 Solución Completa', file: 'soluciones/primer-parcial-naves.md' },
+            { id: 'parcial1-naves-r1', title: 'R1: Recepción (Pseudo)', file: 'soluciones/parcial1-naves-r1.md' },
+            { id: 'parcial1-naves-r2', title: 'R2: Procesamiento (Pseudo)', file: 'soluciones/parcial1-naves-r2.md' },
+            { id: 'parcial1-naves-r3', title: 'R3: Historial AVL (Pseudo)', file: 'soluciones/parcial1-naves-r3.md' },
+            { id: 'parcial1-naves-r4', title: 'R4: Cancelación (Pseudo)', file: 'soluciones/parcial1-naves-r4.md' },
+            { id: 'parcial1-naves-modelado', title: 'Modelado y Entidades', file: 'soluciones/parcial1-naves-modelado.md' },
         ]
     }
 ];
