@@ -541,12 +541,13 @@ async function loadTopic(id) {
         } else {
             // Add a cache buster to avoid getting stale 404s or old content
             const fetchUrl = topic.file + '?v=' + Date.now();
-            console.log('Fetching:', fetchUrl);
+            const fullUrl = new URL(topic.file, window.location.href).href;
+            console.log('Fetching:', fullUrl);
             
             const response = await fetch(fetchUrl);
             if (!response.ok) {
                 console.error(`Fetch failed for ${topic.file}:`, response.status, response.statusText);
-                throw new Error(`Error ${response.status}: ${response.statusText}`);
+                throw new Error(`Error ${response.status}: ${response.statusText} (URL: ${fullUrl})`);
             }
             text = await response.text();
             
