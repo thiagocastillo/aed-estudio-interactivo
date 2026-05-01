@@ -5,7 +5,8 @@ const tabsConfig = {
     'Soluciones': { icon: 'fa-check-double', label: 'Soluciones' },
     'Codigo Base': { icon: 'fa-laptop-code', label: 'Labs' },
     'Fuentes Java': { icon: 'fa-code', label: 'Java TDAs' },
-    'Guias Practicas': { icon: 'fa-route', label: 'Guias' }
+    'Guias Practicas': { icon: 'fa-route', label: 'Guias' },
+    'Primer Parcial': { icon: 'fa-rocket', label: '1er Parcial' }
 };
 
 const virtualDocuments = {
@@ -132,6 +133,7 @@ const topics = [
         items: [
             { id: 'guia', title: 'Guía de Estudio', file: 'guia-de-estudio.md' },
             { id: 'cuadernola', title: 'Cuadernola (Teoría)', file: 'cuadernola.md' },
+            { id: 'metodos-java-guia', title: 'Guía de Implementación Java', file: 'metodos_java.md' },
         ]
     },
     {
@@ -146,11 +148,14 @@ const topics = [
             { id: 'pseudo-lista', title: 'Lista Enlazada', file: 'pseudocodigos/lista-enlazada.md' },
             { id: 'pseudo-pila', title: 'Pila', file: 'pseudocodigos/pila.md' },
             { id: 'pseudo-eliminacion', title: 'Eliminación ABB', file: 'pseudocodigos/eliminacion-abb.md' },
+            { id: 'pseudo-clave-compuesta', title: 'Clave Compuesta', file: 'pseudocodigos/clave-compuesta.md' },
             { id: 'pseudo-ej-pelis', title: 'Ejercicio: Películas', file: 'pseudocodigos/ejercicio-bst-peliculas.md' },
             { id: 'pseudo-ej-parentesco', title: 'Ejercicio: Parentesco', file: 'pseudocodigos/ejercicio-calcular-parentesco.md' },
             { id: 'pseudo-ej-combo', title: 'Ejercicio: Combo Viable', file: 'pseudocodigos/ejercicio-combo-viable.md' },
             { id: 'pseudo-ej-ltim', title: 'Ejercicio: LTIM', file: 'pseudocodigos/ejercicio-ltim.md' },
             { id: 'pseudo-ej-hojas', title: 'Ejercicio: Hojas/Internos', file: 'pseudocodigos/ejercicio-separar-hojas-internos.md' },
+            { id: 'pseudo-ej-altura', title: 'Ejercicio: Calcular Altura', file: 'pseudocodigos/ejercicio-calcular-altura.md' },
+            { id: 'pseudo-ej-tamano', title: 'Ejercicio: Calcular Tamaño', file: 'pseudocodigos/ejercicio-calcular-tamano.md' },
         ]
     },
     {
@@ -179,6 +184,10 @@ const topics = [
             { id: 'sol-combo', title: 'Combo Viable', file: 'soluciones/combo-viable.md' },
             { id: 'sol-ltim', title: 'LTI Media', file: 'soluciones/lti-media.md' },
             { id: 'sol-hojas', title: 'Separar Hojas/Internos', file: 'soluciones/separar-hojas-internos.md' },
+            { id: 'sol-2024s1-summary', title: '📌 Solución 2024-S1 (Info)', file: 'virtual/sol-2024s1-summary.md', virtual: true, virtualSource: 'sol-2024s1' },
+            { id: 'sol-2024s1-tarbol', title: '   TArbolBB.java (Sol)', file: 'soluciones/Primer-parcial-Parte-3-2024-1er-Semestre/src/main/java/uy/edu/ucu/aed/TArbolBB.java' },
+            { id: 'sol-2024s1-tprod', title: '   TArbolDeProductos.java', file: 'soluciones/Primer-parcial-Parte-3-2024-1er-Semestre/src/main/java/uy/edu/ucu/aed/TArbolDeProductos.java' },
+            { id: 'sol-2024s1-telem', title: '   TElementoAB.java (Sol)', file: 'soluciones/Primer-parcial-Parte-3-2024-1er-Semestre/src/main/java/uy/edu/ucu/aed/TElementoAB.java' },
         ]
     },
     {
@@ -206,6 +215,7 @@ const topics = [
     {
         category: 'Fuentes Java',
         items: [
+            { id: 'java-full-reference', title: '📘 Guía Maestra Java', file: 'metodos_java.md' },
             { id: 'java-tarbol', title: 'TArbolBB (Genérico)', file: 'codigo-base/2024-S1/TArbolBB.java' },
             { id: 'java-telem', title: 'TElementoAB (Genérico)', file: 'codigo-base/2024-S1/TElementoAB.java' },
             { id: 'java-lista', title: 'Lista Enlazada', file: 'codigo-base/farmachop/Lista.java' },
@@ -221,6 +231,17 @@ const topics = [
             { id: 'guia-interactiva-general', title: 'Ruta Interactiva de Estudio', file: 'virtual/guia-interactiva-general.md', virtual: true },
             { id: 'codigo-base-mapa', title: 'Mapa Visual del Codigo Base', file: 'virtual/codigo-base-mapa.md', virtual: true },
             { id: 'practica-60-min', title: 'Practica Guiada 60 Min', file: 'virtual/practica-60-min.md', virtual: true }
+        ]
+    },
+    {
+        category: 'Primer Parcial',
+        items: [
+            { id: 'parcial1-naves-completo', title: '🚀 Solución Completa: Naves', file: 'soluciones/primer-parcial-naves.md' },
+            { id: 'parcial1-naves-r1', title: 'R1: Recepción de Tareas', file: 'soluciones/parcial1-naves-r1.md' },
+            { id: 'parcial1-naves-r2', title: 'R2: Procesamiento', file: 'soluciones/parcial1-naves-r2.md' },
+            { id: 'parcial1-naves-r3', title: 'R3: Historial AVL', file: 'soluciones/parcial1-naves-r3.md' },
+            { id: 'parcial1-naves-r4', title: 'R4: Cancelación', file: 'soluciones/parcial1-naves-r4.md' },
+            { id: 'parcial1-naves-modelado', title: 'Modelado de Entidades', file: 'soluciones/parcial1-naves-modelado.md' },
         ]
     }
 ];
@@ -338,6 +359,11 @@ function getVirtualCodeBaseMarkdown(key) {
             title: 'Lab Parentesco',
             objective: 'Implementar calculo de parentesco en arbol genealogico invertido.',
             files: ['IArbolBB.java', 'IElementoAB.java', 'TArbolBB.java', 'TElementoAB.java', 'Genealogia.java', 'Persona.java']
+        },
+        'sol-2024s1': {
+            title: 'Solución Completa 2024-S1',
+            objective: 'Revisar la implementación resuelta del parcial 2024-S1 para comparar con tu código.',
+            files: ['TArbolBB.java', 'TElementoAB.java', 'TArbolDeProductos.java', 'Main.java', 'ManejadorArchivosGenerico.java', 'Parcial1Test_Junit5.java']
         }
     };
 
