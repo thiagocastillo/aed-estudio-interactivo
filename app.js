@@ -558,6 +558,9 @@ async function loadTopic(id) {
                 text = `# Datos: ${topic.title}\n\n\`\`\`text\n${text}\n\`\`\``;
             }
         }
+        // Remover el bloque YAML (Frontmatter) si existe al inicio del documento
+        text = text.replace(/^---\r?\n[\s\S]*?\r?\n---\r?\n/, '');
+        
         markdownContent.innerHTML = marked.parse(text);
         markdownContent.classList.add('fade-in');
         enhanceCodeBlocks();
